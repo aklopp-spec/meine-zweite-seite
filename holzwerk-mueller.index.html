@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Holzwerk Müller aus Nümbrecht: Türen, Fenster, Terrassen, Carports, Möbel nach Maß und Holzarbeiten mit Anspruch.">
+  <title>Holzwerk Müller – Handwerk mit Holz. Qualität fürs Leben.</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20211f;
+      --muted: #696a64;
+      --paper: #f7f6f2;
+      --white: #fff;
+      --line: #deddd6;
+      --wood: #a95e36;
+      --forest: #263a31;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.55 var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      height: 72px;
+      border-bottom: 1px solid rgb(32 33 31 / 8%);
+      background: rgb(247 246 242 / 92%);
+      backdrop-filter: blur(18px);
+    }
+    .nav-wrap {
+      width: min(1240px, calc(100% - 56px));
+      height: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .brand {
+      flex: 0 0 auto;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-decoration: none;
+    }
+    .brand span { color: var(--wood); }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: #50514d;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--wood); }
+    .nav-cta {
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white) !important;
+    }
+    .nav-cta:hover { background: var(--forest); }
+
+    .hero {
+      position: relative;
+      min-height: min(740px, calc(100svh - 72px));
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #292722;
+      color: var(--white);
+    }
+    .hero-image, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-image { object-fit: cover; object-position: center 52%; animation: hero-drift 24s ease-in-out infinite alternate; }
+    .hero-shade { background: rgb(17 19 17 / 43%); }
+    .hero-content {
+      position: relative;
+      width: min(1240px, calc(100% - 56px));
+      margin: 0 auto;
+      padding: 100px 0 82px;
+      animation: rise-in 750ms both;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #ead9c7;
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(54px, 8vw, 106px);
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: .99;
+    }
+    .hero-subtitle {
+      max-width: 480px;
+      margin: 25px 0 0;
+      color: rgb(255 255 255 / 86%);
+      font-size: 18px;
+    }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 34px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+    .hero-link:hover { transform: translateY(-2px); background: #f1e9df; }
+    .hero-link span { font-size: 18px; line-height: 1; }
+
+    .intro {
+      width: min(920px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 112px 0 104px;
+      text-align: center;
+    }
+    .intro .eyebrow { color: var(--wood); }
+    h2 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 550;
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+    .intro h2 { font-family: var(--serif); font-weight: 400; }
+    .intro-copy {
+      max-width: 650px;
+      margin: 23px auto 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .services {
+      padding: 96px 0 106px;
+      background: #eeede7;
+    }
+    .section-wrap { width: min(1120px, calc(100% - 56px)); margin: auto; }
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+    .section-heading h2 { max-width: 600px; }
+    .section-heading p {
+      max-width: 340px;
+      margin: 0 0 5px;
+      color: var(--muted);
+    }
+    .service-list { border-top: 1px solid #c9c8c1; }
+    .service-item { border-bottom: 1px solid #c9c8c1; }
+    .service-row {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 68px minmax(210px, .8fr) 1.2fr 24px;
+      align-items: center;
+      gap: 20px;
+      padding: 25px 0 27px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: padding-left 220ms ease;
+      list-style: none;
+    }
+    .service-row::-webkit-details-marker { display: none; }
+    .service-row:hover { padding-left: 8px; }
+    .service-number { color: var(--wood); font-size: 12px; font-weight: 700; }
+    .service-title { font-size: 23px; font-weight: 550; transition: color 220ms ease; }
+    .service-row:hover .service-title, .service-item[open] .service-title { color: var(--wood); }
+    .service-description { color: var(--muted); }
+    .service-chevron { justify-self: end; font-size: 24px; line-height: 1; transition: transform 220ms ease; }
+    .service-item[open] .service-chevron { transform: rotate(45deg); }
+    .service-example {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 30px;
+      padding: 0 24px 28px 88px;
+      animation: reveal-panel 300ms ease both;
+    }
+    .service-example img { width: 100%; aspect-ratio: 16 / 10; border-radius: 6px; object-fit: cover; }
+    .service-example .eyebrow { margin: 0 0 8px; color: var(--wood); }
+    .service-example h3 { margin: 0; font-size: 22px; font-weight: 550; }
+    .service-example p:last-child { margin: 10px 0 0; color: var(--muted); }
+    .service-row:focus-visible { outline: 3px solid #d18b5b; outline-offset: 4px; }
+
+    .craft {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 550px;
+      background: var(--forest);
+      color: var(--white);
+    }
+    .craft-image-wrap { min-height: 430px; overflow: hidden; }
+    .craft-image { width: 100%; height: 100%; object-fit: cover; }
+    .craft-copy {
+      align-self: center;
+      max-width: 560px;
+      padding: 76px clamp(38px, 7vw, 110px);
+    }
+    .craft-copy .eyebrow { color: #d9b993; }
+    .craft-copy h2 { font-family: var(--serif); font-weight: 400; }
+    .craft-copy p:not(.eyebrow) { margin: 23px 0 0; color: rgb(255 255 255 / 76%); }
+
+    .work { padding: 104px 0 112px; }
+    .work-heading { margin-bottom: 34px; }
+    .work-heading p { max-width: 500px; margin: 16px 0 0; color: var(--muted); }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr 1fr;
+      gap: 16px;
+    }
+    .gallery figure { margin: 0; overflow: hidden; background: #e6e2da; }
+    .gallery img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .gallery figure:hover img { transform: scale(1.035); }
+    .gallery figcaption { padding: 13px 2px 0; color: var(--muted); font-size: 13px; }
+
+    .contact {
+      padding: 92px 24px 86px;
+      background: #e8e4db;
+      text-align: center;
+    }
+    .contact h2 { max-width: 760px; margin: auto; font-family: var(--serif); font-weight: 400; }
+    .contact p { margin: 20px 0 0; color: var(--muted); }
+    .location-link {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 19px;
+      border: 1px solid #b8b4aa;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background 180ms ease;
+    }
+    .location-link:hover { background: rgb(255 255 255 / 55%); }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px max(28px, calc((100% - 1120px) / 2));
+      background: var(--ink);
+      color: rgb(255 255 255 / 68%);
+      font-size: 12px;
+    }
+    footer p { margin: 0; }
+    footer strong { color: var(--white); font-weight: 600; }
+    a:focus-visible { outline: 3px solid #d18b5b; outline-offset: 4px; }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes hero-drift {
+      from { transform: scale(1.02); }
+      to { transform: scale(1.08); }
+    }
+    @keyframes reveal-panel {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .7, .2, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .js-enabled .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    @media (max-width: 760px) {
+      .site-header { height: auto; min-height: 66px; }
+      .nav-wrap { width: calc(100% - 36px); min-height: 66px; gap: 14px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 12px; }
+      .nav-links a:nth-child(2) { display: none; }
+      .nav-cta { padding: 9px 13px; }
+      .hero { min-height: 650px; min-height: min(720px, calc(100svh - 66px)); }
+      .hero-content { width: calc(100% - 40px); padding: 70px 0 58px; }
+      .hero-image { object-position: 56% center; }
+      .hero-shade { background: rgb(17 19 17 / 49%); }
+      .hero-subtitle { max-width: 390px; font-size: 16px; }
+      .intro { width: calc(100% - 40px); padding: 78px 0 75px; }
+      .section-wrap { width: calc(100% - 40px); }
+      .services, .work { padding: 76px 0; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+      .service-row { grid-template-columns: 38px 1fr 20px; gap: 8px 12px; padding: 21px 0; }
+      .service-title { font-size: 20px; }
+      .service-description { grid-column: 2; }
+      .service-chevron { grid-column: 3; grid-row: 1 / 3; align-self: center; }
+      .service-example { grid-template-columns: 1fr; gap: 16px; padding: 0 0 24px 50px; }
+      .service-example h3 { font-size: 20px; }
+      .craft { grid-template-columns: 1fr; }
+      .craft-image-wrap { min-height: 330px; max-height: 430px; }
+      .craft-copy { padding: 58px 28px 66px; }
+      .gallery { grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+      .gallery figure:first-child { grid-column: 1 / -1; }
+      .gallery img { height: 230px; }
+      .gallery figure:first-child img { height: 300px; }
+      .contact { padding: 72px 22px; }
+      footer { flex-direction: column; padding: 22px 20px; }
+    }
+    @media (max-width: 420px) {
+      .nav-links { gap: 10px; }
+      .nav-links a:first-child { display: none; }
+      h1 { font-size: 51px; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery figure:first-child { grid-column: auto; }
+      .gallery img, .gallery figure:first-child img { height: 260px; }
+    }
+  </style>
+  <script>document.documentElement.classList.add('js-enabled');</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#start" aria-label="Holzwerk Müller – zur Startseite">Holzwerk <span>Müller</span></a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#handwerk">Unser Handwerk</a>
+        <a class="nav-cta" href="#kontakt">Standort</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://images.openai.com/static-rsc-4/RtezPMfU4HGJBiTBLcwsDXlYA2QOy85XrWRlb2x8Qb04MY7yDcMwdZ6br-XoPMyVKFw7qrJu3C9RsFwOyP8HF-kD9HwClcw3dJu4aTpyU0CQdpobEJH_06-lcBPdpc3hhD1vIr04wFEciBv0YXl5KWBWFPnSlrsJhGGisr9W8NQSg-_-tN38zeOWcArtV4rs?purpose=inline" alt="Tischler bei der Arbeit an einer Säge in der Werkstatt">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Tischlerei &amp; Holzbau · Nümbrecht</p>
+        <h1 id="hero-title">Handwerk mit Holz.<br>Qualität fürs Leben.</h1>
+        <p class="hero-subtitle">Holzwerk Müller verbindet gutes Handwerk mit Ideen, die bleiben. Sorgfältig geplant und mit Liebe zum Material umgesetzt.</p>
+        <a class="hero-link" href="#leistungen">Unsere Leistungen <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">Holzwerk Müller</p>
+      <h2 id="intro-title">Aus gutem Holz wird etwas Besonderes.</h2>
+      <p class="intro-copy">Ob ein neues Fenster, ein Platz für lange Sommerabende oder ein Möbelstück, das genau zu Ihnen passt: Wir bringen Ihre Ideen mit handwerklicher Sorgfalt in Form.</p>
+    </section>
+
+    <section class="services" id="leistungen" aria-labelledby="services-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Was wir für Sie tun</p>
+            <h2 id="services-title">Holz, passend zu Ihrem Zuhause.</h2>
+          </div>
+          <p>Von der präzisen Montage bis zur individuellen Anfertigung: durchdachte Lösungen für drinnen und draußen.</p>
+        </div>
+        <div class="service-list">
+          <details class="service-item" name="service-examples">
+            <summary class="service-row">
+              <span class="service-number">01</span>
+              <span class="service-title">Türen &amp; Fenster</span>
+              <span class="service-description">Fachgerecht montiert, sauber eingepasst und auf Ihr Zuhause abgestimmt.</span>
+              <span class="service-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="service-example">
+              <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Helles Zimmer mit großem Fenster und warmen Holzdetails" loading="lazy">
+              <div>
+                <p class="eyebrow">Beispielbild · Idee</p>
+                <h3>Ein Fensterplatz mit Blick ins Grüne</h3>
+                <p>Passgenaue Fenster und ein sauber gearbeiteter Holzrahmen bringen Licht und Ruhe in den Raum.</p>
+              </div>
+            </div>
+          </details>
+          <details class="service-item" name="service-examples">
+            <summary class="service-row">
+              <span class="service-number">02</span>
+              <span class="service-title">Terrassen &amp; Carports</span>
+              <span class="service-description">Robuste Konstruktionen aus Holz, die draußen Platz und Schutz schaffen.</span>
+              <span class="service-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="service-example">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Terrassenbereich mit Holz und Blick ins Grüne" loading="lazy">
+              <div>
+                <p class="eyebrow">Beispielbild · Idee</p>
+                <h3>Eine Terrasse für lange Abende</h3>
+                <p>Breite Dielen, eine klare Kante und genug Platz für den Gartentisch: ein neues Zimmer unter freiem Himmel.</p>
+              </div>
+            </div>
+          </details>
+          <details class="service-item" name="service-examples">
+            <summary class="service-row">
+              <span class="service-number">03</span>
+              <span class="service-title">Möbel nach Maß</span>
+              <span class="service-description">Individuelle Einzelstücke, geplant für Ihren Raum und Ihren Alltag.</span>
+              <span class="service-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="service-example">
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Wohnzimmer mit individuell abgestimmten Möbeln und Holzoberflächen" loading="lazy">
+              <div>
+                <p class="eyebrow">Beispielbild · Idee</p>
+                <h3>Ein Regal bis unters Dach</h3>
+                <p>Jeder Zentimeter sinnvoll genutzt, mit offenen Fächern für Bücher und Platz für die Dinge, die bleiben sollen.</p>
+              </div>
+            </div>
+          </details>
+          <details class="service-item" name="service-examples">
+            <summary class="service-row">
+              <span class="service-number">04</span>
+              <span class="service-title">Reparatur &amp; Renovierung</span>
+              <span class="service-description">Bestehendes erhalten, aufarbeiten und mit Sorgfalt erneuern.</span>
+              <span class="service-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="service-example">
+              <img src="https://images.openai.com/static-rsc-4/RtezPMfU4HGJBiTBLcwsDXlYA2QOy85XrWRlb2x8Qb04MY7yDcMwdZ6br-XoPMyVKFw7qrJu3C9RsFwOyP8HF-kD9HwClcw3dJu4aTpyU0CQdpobEJH_06-lcBPdpc3hhD1vIr04wFEciBv0YXl5KWBWFPnSlrsJhGGisr9W8NQSg-_-tN38zeOWcArtV4rs?purpose=inline" alt="Tischler arbeitet an einer Säge in der Werkstatt" loading="lazy">
+              <div>
+                <p class="eyebrow">Beispielbild · Idee</p>
+                <h3>Altes Holz, neuer Alltag</h3>
+                <p>Eine abgenutzte Tür wird aufgearbeitet, Beschläge werden erneuert und die vertraute Maserung bleibt erhalten.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="craft" id="handwerk" aria-labelledby="craft-title">
+      <div class="craft-image-wrap">
+        <img class="craft-image" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" alt="Heller Wohnraum mit sorgfältig verarbeitetem Holz" loading="lazy">
+      </div>
+      <div class="craft-copy">
+        <p class="eyebrow">Mit Ruhe und Präzision</p>
+        <h2 id="craft-title">Gute Arbeit sieht man. Und spürt sie jeden Tag.</h2>
+        <p>Holz ist ehrlich: Es verdient einen sorgfältigen Umgang und Lösungen, die lange funktionieren. Genau darauf achten wir bei jedem Maß, jeder Verbindung und jedem letzten Schliff.</p>
+      </div>
+    </section>
+
+    <section class="work" aria-labelledby="work-title">
+      <div class="section-wrap">
+        <div class="work-heading">
+          <p class="eyebrow">Material mit Charakter</p>
+          <h2 id="work-title">Natürlich schön. Für lange Zeit.</h2>
+          <p>Jede Holzmaserung ist anders. Das macht aus guter Planung und solider Arbeit etwas ganz Eigenes.</p>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85" alt="Wohnbereich mit maßgefertigten Holzelementen" loading="lazy">
+            <figcaption>Räume mit natürlichen Materialien</figcaption>
+          </figure>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=850&q=85" alt="Terrasse mit Holz und Blick ins Grüne" loading="lazy">
+            <figcaption>Mehr Platz im Freien</figcaption>
+          </figure>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85" alt="Handwerklich gestalteter Innenraum mit warmen Oberflächen" loading="lazy">
+            <figcaption>Details, die den Unterschied machen</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt" aria-labelledby="contact-title">
+      <p class="eyebrow">Aus Nümbrecht, für die Region</p>
+      <h2 id="contact-title">Ein gutes Projekt beginnt mit einer guten Idee.</h2>
+      <p>Holzwerk Müller · Tischlerei und Holzbau · Nümbrecht, NRW</p>
+      <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=N%C3%BCmbrecht%2C+NRW" target="_blank" rel="noreferrer">Nümbrecht auf der Karte ansehen ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Holzwerk Müller</strong> · Handwerk mit Holz. Qualität fürs Leben.</p>
+    <p>Nümbrecht, NRW</p>
+  </footer>
+  <script>
+    const revealItems = document.querySelectorAll('.intro, .services .section-heading, .service-row, .craft-image-wrap, .craft-copy, .work-heading, .gallery figure, .contact > *');
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal');
+      item.style.setProperty('--reveal-delay', `${index % 4 * 90}ms`);
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+  </script>
+</body>
+</html>
