@@ -267,6 +267,63 @@
       transition: background 180ms ease;
     }
     .location-link:hover { background: rgb(255 255 255 / 55%); }
+    .inquiry {
+      padding: 92px 24px 96px;
+      background: #eeede7;
+    }
+    .inquiry-wrap { width: min(820px, 100%); margin: auto; }
+    .inquiry .eyebrow { color: var(--wood); }
+    .inquiry h2 { max-width: 720px; font-family: var(--serif); font-weight: 400; }
+    .inquiry-intro { max-width: 650px; margin: 18px 0 30px; color: var(--muted); }
+    .inquiry-form fieldset { margin: 0; padding: 0; border: 0; }
+    .inquiry-form fieldset:disabled { opacity: .72; }
+    .inquiry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+    .inquiry-form label { display: block; margin-bottom: 16px; color: var(--ink); font-size: 14px; font-weight: 600; }
+    .inquiry-form input, .inquiry-form select, .inquiry-form textarea {
+      display: block;
+      width: 100%;
+      margin-top: 6px;
+      padding: 12px;
+      border: 1px solid #c8c5bd;
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+    }
+    .inquiry-form textarea { min-height: 132px; resize: vertical; }
+    .inquiry-form input:focus-visible, .inquiry-form select:focus-visible, .inquiry-form textarea:focus-visible {
+      outline: 3px solid #d18b5b;
+      outline-offset: 2px;
+    }
+    .privacy-note { margin: 2px 0 20px; color: var(--muted); font-size: 13px; }
+    .inquiry-submit {
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 4px;
+      background: var(--forest);
+      color: var(--white);
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+    .inquiry-submit:hover { background: var(--ink); }
+    .inquiry-submit:focus-visible { outline: 3px solid #d18b5b; outline-offset: 3px; }
+    .inquiry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .inquiry-example {
+      min-height: 48px;
+      padding: 11px 16px;
+      border: 1px solid #b8b4aa;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .inquiry-example:hover { background: rgb(255 255 255 / 60%); }
+    .inquiry-example:focus-visible { outline: 3px solid #d18b5b; outline-offset: 3px; }
+    .inquiry-status { min-height: 1.6em; margin: 14px 0 0; color: var(--forest); font-weight: 600; }
     footer {
       display: flex;
       justify-content: space-between;
@@ -332,6 +389,8 @@
       .gallery img { height: 230px; }
       .gallery figure:first-child img { height: 300px; }
       .contact { padding: 72px 22px; }
+      .inquiry { padding: 72px 20px; }
+      .inquiry-grid { grid-template-columns: 1fr; gap: 0; }
       footer { flex-direction: column; padding: 22px 20px; }
     }
     @media (max-width: 420px) {
@@ -352,7 +411,7 @@
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="#leistungen">Leistungen</a>
         <a href="#handwerk">Unser Handwerk</a>
-        <a class="nav-cta" href="#kontakt">Standort</a>
+        <a class="nav-cta" href="#anfrage">Anfrage</a>
       </nav>
     </div>
   </header>
@@ -488,6 +547,58 @@
       </div>
     </section>
 
+    <section class="inquiry" id="anfrage" aria-labelledby="inquiry-title">
+      <div class="inquiry-wrap">
+        <p class="eyebrow">Projekt anfragen</p>
+        <h2 id="inquiry-title">Was haben Sie vor?</h2>
+        <p class="inquiry-intro">Ein paar Angaben helfen uns, Ihre Anfrage einzuordnen. Sie entscheiden selbst, welche Kontaktdaten Sie angeben.</p>
+
+        <form class="inquiry-form" id="anfrage-form" method="post">
+          <fieldset id="anfrage-felder" disabled>
+            <div class="inquiry-grid">
+              <label for="anfrage-leistung">Worum geht es? <span aria-hidden="true">*</span>
+                <select id="anfrage-leistung" name="leistung" required>
+                  <option value="" selected disabled>Leistung auswählen</option>
+                  <option>Türen und Fenster</option>
+                  <option>Terrasse oder Carport</option>
+                  <option>Möbel nach Maß</option>
+                  <option>Reparatur oder Renovierung</option>
+                  <option>Sonstiges</option>
+                </select>
+              </label>
+              <label for="anfrage-name">Ihr Name <span aria-hidden="true">*</span>
+                <input id="anfrage-name" name="name" type="text" autocomplete="name" required>
+              </label>
+              <label for="anfrage-email">E-Mail-Adresse <span aria-hidden="true">*</span>
+                <input id="anfrage-email" name="email" type="email" autocomplete="email" required>
+              </label>
+              <label for="anfrage-telefon">Telefon (optional)
+                <input id="anfrage-telefon" name="telefon" type="tel" autocomplete="tel">
+              </label>
+              <label for="anfrage-ort">Ort oder Postleitzahl (optional)
+                <input id="anfrage-ort" name="ort" type="text" autocomplete="postal-code">
+              </label>
+              <label for="anfrage-kontaktweg">Bevorzugter Kontaktweg
+                <select id="anfrage-kontaktweg" name="kontaktweg">
+                  <option value="E-Mail">E-Mail</option>
+                  <option value="Telefon">Telefon</option>
+                </select>
+              </label>
+            </div>
+            <label for="anfrage-details">Was möchten Sie umsetzen? <span aria-hidden="true">*</span>
+              <textarea id="anfrage-details" name="details" rows="5" required></textarea>
+            </label>
+            <p class="privacy-note" id="anfrage-datenschutz">Vorschau: Ihre Formularangaben werden nicht versendet oder gespeichert. Vor einem Livebetrieb müssen ein sicherer Übermittlungsweg und passende Datenschutzhinweise eingerichtet werden.</p>
+            <div class="inquiry-actions">
+              <button class="inquiry-submit" type="submit">Demo-Anfrage testen</button>
+              <button class="inquiry-example" id="anfrage-demo" type="button">Beispieldaten einsetzen</button>
+            </div>
+            <p class="inquiry-status" id="anfrage-status" role="status" aria-live="polite"></p>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
     <section class="contact" id="kontakt" aria-labelledby="contact-title">
       <p class="eyebrow">Aus Nümbrecht, für die Region</p>
       <h2 id="contact-title">Ein gutes Projekt beginnt mit einer guten Idee.</h2>
@@ -501,6 +612,23 @@
     <p>Nümbrecht, NRW</p>
   </footer>
   <script>
+    const inquiryForm = document.getElementById('anfrage-form');
+    const inquiryFields = document.getElementById('anfrage-felder');
+    document.getElementById('anfrage-demo').addEventListener('click', () => {
+      document.getElementById('anfrage-leistung').value = 'Möbel nach Maß';
+      document.getElementById('anfrage-name').value = 'Alex Beispiel';
+      document.getElementById('anfrage-email').value = 'alex.beispiel@example.com';
+      document.getElementById('anfrage-ort').value = 'Nümbrecht';
+      document.getElementById('anfrage-details').value = 'Ich interessiere mich für ein maßgefertigtes Regal aus Eiche. Bitte melden Sie sich für ein erstes Beratungsgespräch.';
+      document.getElementById('anfrage-status').textContent = 'Beispieldaten sind eingesetzt. Testen Sie jetzt den Demo-Ablauf.';
+    });
+    inquiryForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(inquiryForm);
+      document.getElementById('anfrage-status').textContent = `Demo erfolgreich: Die Anfrage von ${formData.get('name')} wurde lokal geprüft, aber nicht versendet oder gespeichert.`;
+    });
+    inquiryFields.disabled = false;
+
     const revealItems = document.querySelectorAll('.intro, .services .section-heading, .service-row, .craft-image-wrap, .craft-copy, .work-heading, .gallery figure, .contact > *');
     revealItems.forEach((item, index) => {
       item.classList.add('reveal');
