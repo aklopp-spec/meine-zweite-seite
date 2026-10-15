@@ -1,0 +1,7 @@
+# Lokale Einstellungen für Claude / Vorschau-Server
+.claude/
+
+# Systemdateien
+Thumbs.db
+desktop.ini
+.DS_Store

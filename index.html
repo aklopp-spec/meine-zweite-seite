@@ -324,10 +324,61 @@
     .inquiry-example:hover { background: rgb(255 255 255 / 60%); }
     .inquiry-example:focus-visible { outline: 3px solid #d18b5b; outline-offset: 3px; }
     .inquiry-status { min-height: 1.6em; margin: 14px 0 0; color: var(--forest); font-weight: 600; }
+    .privacy-note a { color: var(--forest); font-weight: 600; }
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 28px;
+      margin: 26px auto 0;
+      padding: 0;
+      list-style: none;
+      font-size: 15px;
+    }
+    .contact-details a { font-weight: 650; text-decoration: none; }
+    .contact-details a:hover { color: var(--wood); }
+    .contact .map-note { margin-top: 10px; font-size: 12px; }
+
+    .demo-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px 14px;
+      padding: 9px 20px;
+      background: var(--forest);
+      color: rgb(255 255 255 / 88%);
+      font-size: 12.5px;
+      text-align: center;
+    }
+    .demo-bar strong { color: #d9b993; }
+    .demo-bar a { color: var(--white); font-weight: 650; }
+
+    .demo-features { padding: 92px 0 96px; background: var(--paper); }
+    .demo-features h2 { font-family: var(--serif); font-weight: 400; }
+    .demo-features .eyebrow { color: var(--wood); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 38px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .feature-grid li {
+      padding: 22px 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+    }
+    .feature-grid strong { display: block; margin-bottom: 6px; font-size: 16px; }
+    .feature-grid span { color: var(--muted); font-size: 14px; }
+
     footer {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 20px;
+      gap: 12px 20px;
       padding: 25px max(28px, calc((100% - 1120px) / 2));
       background: var(--ink);
       color: rgb(255 255 255 / 68%);
@@ -335,6 +386,9 @@
     }
     footer p { margin: 0; }
     footer strong { color: var(--white); font-weight: 600; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: var(--white); text-decoration: none; }
+    .footer-links a:hover { color: #d9b993; }
     a:focus-visible { outline: 3px solid #d18b5b; outline-offset: 4px; }
 
     @keyframes rise-in {
@@ -391,6 +445,9 @@
       .contact { padding: 72px 22px; }
       .inquiry { padding: 72px 20px; }
       .inquiry-grid { grid-template-columns: 1fr; gap: 0; }
+      .demo-features { padding: 72px 0; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .contact-details { flex-direction: column; }
       footer { flex-direction: column; padding: 22px 20px; }
     }
     @media (max-width: 420px) {
@@ -405,6 +462,10 @@
   <script>document.documentElement.classList.add('js-enabled');</script>
 </head>
 <body>
+  <div class="demo-bar" role="note">
+    <span><strong>Demo-Webseite</strong> · Holzwerk Müller ist ein erfundener Betrieb. Alle Angaben sind Beispiele.</span>
+    <a href="#so-gebaut">So ist diese Seite gebaut</a>
+  </div>
   <header class="site-header">
     <div class="nav-wrap">
       <a class="brand" href="#start" aria-label="Holzwerk Müller – zur Startseite">Holzwerk <span>Müller</span></a>
@@ -418,7 +479,7 @@
 
   <main>
     <section class="hero" id="start" aria-labelledby="hero-title">
-      <img class="hero-image" src="https://images.openai.com/static-rsc-4/RtezPMfU4HGJBiTBLcwsDXlYA2QOy85XrWRlb2x8Qb04MY7yDcMwdZ6br-XoPMyVKFw7qrJu3C9RsFwOyP8HF-kD9HwClcw3dJu4aTpyU0CQdpobEJH_06-lcBPdpc3hhD1vIr04wFEciBv0YXl5KWBWFPnSlrsJhGGisr9W8NQSg-_-tN38zeOWcArtV4rs?purpose=inline" alt="Tischler bei der Arbeit an einer Säge in der Werkstatt">
+      <img class="hero-image" src="bilder/werkstatt-hero.jpg" alt="Tischler hobelt lächelnd ein Brett in seiner Werkstatt">
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="eyebrow">Tischlerei &amp; Holzbau · Nümbrecht</p>
@@ -452,7 +513,7 @@
               <span class="service-chevron" aria-hidden="true">+</span>
             </summary>
             <div class="service-example">
-              <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Helles Zimmer mit großem Fenster und warmen Holzdetails" loading="lazy">
+              <img src="bilder/fensterplatz.jpg" alt="Helles Zimmer mit großem Fenster und warmen Holzdetails" loading="lazy">
               <div>
                 <p class="eyebrow">Beispielbild · Idee</p>
                 <h3>Ein Fensterplatz mit Blick ins Grüne</h3>
@@ -468,7 +529,7 @@
               <span class="service-chevron" aria-hidden="true">+</span>
             </summary>
             <div class="service-example">
-              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Terrassenbereich mit Holz und Blick ins Grüne" loading="lazy">
+              <img src="bilder/terrasse.jpg" alt="Terrassenbereich mit Holz und Blick ins Grüne" loading="lazy">
               <div>
                 <p class="eyebrow">Beispielbild · Idee</p>
                 <h3>Eine Terrasse für lange Abende</h3>
@@ -484,7 +545,7 @@
               <span class="service-chevron" aria-hidden="true">+</span>
             </summary>
             <div class="service-example">
-              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Wohnzimmer mit individuell abgestimmten Möbeln und Holzoberflächen" loading="lazy">
+              <img src="bilder/wohnraum-moebel.jpg" alt="Wohnzimmer mit individuell abgestimmten Möbeln und Holzoberflächen" loading="lazy">
               <div>
                 <p class="eyebrow">Beispielbild · Idee</p>
                 <h3>Ein Regal bis unters Dach</h3>
@@ -500,7 +561,7 @@
               <span class="service-chevron" aria-hidden="true">+</span>
             </summary>
             <div class="service-example">
-              <img src="https://images.openai.com/static-rsc-4/RtezPMfU4HGJBiTBLcwsDXlYA2QOy85XrWRlb2x8Qb04MY7yDcMwdZ6br-XoPMyVKFw7qrJu3C9RsFwOyP8HF-kD9HwClcw3dJu4aTpyU0CQdpobEJH_06-lcBPdpc3hhD1vIr04wFEciBv0YXl5KWBWFPnSlrsJhGGisr9W8NQSg-_-tN38zeOWcArtV4rs?purpose=inline" alt="Tischler arbeitet an einer Säge in der Werkstatt" loading="lazy">
+              <img src="bilder/werkstatt-saege.jpg" alt="Handwerker sägt ein Holzstück mit einer Kappsäge" loading="lazy">
               <div>
                 <p class="eyebrow">Beispielbild · Idee</p>
                 <h3>Altes Holz, neuer Alltag</h3>
@@ -514,7 +575,7 @@
 
     <section class="craft" id="handwerk" aria-labelledby="craft-title">
       <div class="craft-image-wrap">
-        <img class="craft-image" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" alt="Heller Wohnraum mit sorgfältig verarbeitetem Holz" loading="lazy">
+        <img class="craft-image" src="bilder/fensterplatz.jpg" alt="Heller Wohnraum mit sorgfältig verarbeitetem Holz" loading="lazy">
       </div>
       <div class="craft-copy">
         <p class="eyebrow">Mit Ruhe und Präzision</p>
@@ -532,15 +593,15 @@
         </div>
         <div class="gallery">
           <figure>
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85" alt="Wohnbereich mit maßgefertigten Holzelementen" loading="lazy">
+            <img src="bilder/wohnraum-moebel.jpg" alt="Wohnbereich mit maßgefertigten Holzelementen" loading="lazy">
             <figcaption>Räume mit natürlichen Materialien</figcaption>
           </figure>
           <figure>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=850&q=85" alt="Terrasse mit Holz und Blick ins Grüne" loading="lazy">
+            <img src="bilder/terrasse.jpg" alt="Terrasse mit Holz und Blick ins Grüne" loading="lazy">
             <figcaption>Mehr Platz im Freien</figcaption>
           </figure>
           <figure>
-            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85" alt="Handwerklich gestalteter Innenraum mit warmen Oberflächen" loading="lazy">
+            <img src="bilder/innenraum-details.jpg" alt="Handwerklich gestalteter Innenraum mit warmen Oberflächen" loading="lazy">
             <figcaption>Details, die den Unterschied machen</figcaption>
           </figure>
         </div>
@@ -588,7 +649,7 @@
             <label for="anfrage-details">Was möchten Sie umsetzen? <span aria-hidden="true">*</span>
               <textarea id="anfrage-details" name="details" rows="5" required></textarea>
             </label>
-            <p class="privacy-note" id="anfrage-datenschutz">Vorschau: Ihre Formularangaben werden nicht versendet oder gespeichert. Vor einem Livebetrieb müssen ein sicherer Übermittlungsweg und passende Datenschutzhinweise eingerichtet werden.</p>
+            <p class="privacy-note" id="anfrage-datenschutz">Ihre Angaben nutzen wir nur, um Ihre Anfrage zu beantworten. Mehr dazu in unserer <a href="datenschutz.html">Datenschutzerklärung</a>. <em>Demo: Es wird nichts versendet oder gespeichert.</em></p>
             <div class="inquiry-actions">
               <button class="inquiry-submit" type="submit">Demo-Anfrage testen</button>
               <button class="inquiry-example" id="anfrage-demo" type="button">Beispieldaten einsetzen</button>
@@ -602,14 +663,38 @@
     <section class="contact" id="kontakt" aria-labelledby="contact-title">
       <p class="eyebrow">Aus Nümbrecht, für die Region</p>
       <h2 id="contact-title">Ein gutes Projekt beginnt mit einer guten Idee.</h2>
-      <p>Holzwerk Müller · Tischlerei und Holzbau · Nümbrecht, NRW</p>
+      <p>Holzwerk Müller · Tischlerei und Holzbau · Musterstraße 1 · 51588 Nümbrecht</p>
+      <ul class="contact-details">
+        <li>Telefon: <a href="tel:+491234567890">01234 567890</a></li>
+        <li>E-Mail: <a href="mailto:info@holzwerk-mueller.example">info@holzwerk-mueller.example</a></li>
+        <li>Mo–Fr 7:30–17:00 Uhr</li>
+      </ul>
       <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=N%C3%BCmbrecht%2C+NRW" target="_blank" rel="noreferrer">Nümbrecht auf der Karte ansehen ↗</a>
+      <p class="map-note">Öffnet Google Maps in einem neuen Tab. Erst dann werden Daten an Google übertragen.</p>
+    </section>
+
+    <section class="demo-features" id="so-gebaut" aria-labelledby="features-title">
+      <div class="section-wrap">
+        <p class="eyebrow">Für Handwerksbetriebe</p>
+        <h2 id="features-title">So ist diese Seite gebaut.</h2>
+        <ul class="feature-grid">
+          <li><strong>Läuft auf jedem Handy</strong><span>Das Layout passt sich an Smartphone, Tablet und PC an.</span></li>
+          <li><strong>Ohne Cookie-Banner</strong><span>Keine Tracking-Tools, keine Cookies. Darum braucht die Seite auch keinen Banner.</span></li>
+          <li><strong>Keine fremden Server</strong><span>Bilder liegen auf dem eigenen Webspace, Schriften kommen vom Gerät. Es werden keine Daten an Google &amp; Co. übertragen.</span></li>
+          <li><strong>Karte per Klick</strong><span>Google Maps wird nicht eingebettet, sondern erst auf Wunsch geöffnet.</span></li>
+          <li><strong>Anfrageformular</strong><span>Kunden beschreiben ihr Projekt direkt. Mit Hinweis auf die Datenschutzerklärung.</span></li>
+          <li><strong>Impressum &amp; Datenschutz</strong><span>Von jeder Seite mit einem Klick erreichbar, mit den Angaben, die Handwerker brauchen.</span></li>
+        </ul>
+      </div>
     </section>
   </main>
 
   <footer>
     <p><strong>Holzwerk Müller</strong> · Handwerk mit Holz. Qualität fürs Leben.</p>
-    <p>Nümbrecht, NRW</p>
+    <nav class="footer-links" aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
   </footer>
   <script>
     const inquiryForm = document.getElementById('anfrage-form');
