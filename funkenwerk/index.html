@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funkenwerk – Metallbau & Kunstschmiede</title>
+  <meta name="description" content="Funkenwerk – fiktive Metallbau-Werkstatt und Kunstschmiede. Demo-Projekt einer Projektwoche.">
+  <meta name="theme-color" content="#0c0b0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c0b0a'/%3E%3Cpath d='M16 5c2 5 7 7 7 13a7 7 0 0 1-14 0c0-3 2-5 3-7 1 3 2 4 4 4-1-4-1-7 0-10z' fill='%23ff6a1a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ===== Kopfzeile ===== -->
+  <header class="header">
+    <a href="#start" class="logo" aria-label="Funkenwerk – zur Startseite">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c2.4 5.6 8 7.8 8 14.6a8 8 0 0 1-16 0c0-3.4 2-5.6 3.4-7.8 1 3.2 2.4 4.4 4.6 4.6-1.2-4.4-1.2-7.8 0-11.4z"/></svg>
+      <span>FUNKEN<b>WERK</b></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#referenzen">Referenzen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn btn-small nav-cta">Projekt anfragen</a>
+    </nav>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="start">
+      <canvas class="sparks" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow reveal"><span class="dot"></span> Metallbau & Kunstschmiede · seit 1987</p>
+        <h1 class="hero-title" aria-label="Wir bringen Stahl in Form.">
+          <span class="line"><span class="word">Wir</span> <span class="word">bringen</span></span>
+          <span class="line"><span class="word glow-text">Stahl</span> <span class="word">in</span> <span class="word">Form.</span></span>
+        </h1>
+        <p class="hero-text reveal">Geländer, Tore, Treppen und Möbel – entworfen, geschmiedet und montiert von unserem Team in Eichenfeld. Jedes Stück ein Unikat, gemacht für Generationen.</p>
+        <div class="hero-actions reveal">
+          <a href="#referenzen" class="btn magnetic">Referenzen ansehen <span class="arrow">→</span></a>
+          <a href="#kontakt" class="btn btn-ghost magnetic">Kostenlos beraten lassen</a>
+        </div>
+      </div>
+
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+          <text><textPath href="#circle">HANDGESCHMIEDET · MASSGEFERTIGT · AUS EICHENFELD · </textPath></text>
+        </svg>
+        <svg class="badge-core" viewBox="0 0 32 32"><path d="M16 3c2.4 5.6 8 7.8 8 14.6a8 8 0 0 1-16 0c0-3.4 2-5.6 3.4-7.8 1 3.2 2.4 4.4 4.6 4.6-1.2-4.4-1.2-7.8 0-11.4z"/></svg>
+      </div>
+
+      <a href="#leistungen" class="scroll-hint" aria-label="Weiter nach unten scrollen"><span></span></a>
+    </section>
+
+    <!-- ===== Laufband ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Treppen</span><i>✦</i><span>Geländer</span><i>✦</i><span>Hoftore</span><i>✦</i><span>Vordächer</span><i>✦</i><span>Stahlmöbel</span><i>✦</i><span>Kunstobjekte</span><i>✦</i><span>Restaurierung</span><i>✦</i>
+        <span>Treppen</span><i>✦</i><span>Geländer</span><i>✦</i><span>Hoftore</span><i>✦</i><span>Vordächer</span><i>✦</i><span>Stahlmöbel</span><i>✦</i><span>Kunstobjekte</span><i>✦</i><span>Restaurierung</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ===== Über uns + Zahlen ===== -->
+    <section class="about section">
+      <div class="container about-grid">
+        <div>
+          <p class="kicker reveal">Über uns</p>
+          <h2 class="reveal">Feuer, Hammer, <em>Präzision.</em></h2>
+        </div>
+        <div class="about-text reveal">
+          <p>Was 1987 als kleine Dorfschmiede begann, ist heute eine Werkstatt mit zwölf Meistern und Gesellen. Wir verbinden altes Schmiedehandwerk mit moderner Lasertechnik – und bleiben dabei, was wir immer waren: Handwerker, die ihre Arbeit lieben.</p>
+        </div>
+      </div>
+      <div class="container stats">
+        <div class="stat reveal"><strong data-count="37">0</strong><span>Jahre Erfahrung</span></div>
+        <div class="stat reveal"><strong data-count="1400" data-suffix="+">0</strong><span>fertige Projekte</span></div>
+        <div class="stat reveal"><strong data-count="12">0</strong><span>Meister & Gesellen</span></div>
+        <div class="stat reveal"><strong data-count="100" data-suffix=" %">0</strong><span>Handarbeit</span></div>
+      </div>
+    </section>
+
+    <!-- ===== Leistungen ===== -->
+    <section class="services section" id="leistungen">
+      <div class="container">
+        <p class="kicker reveal">Leistungen</p>
+        <h2 class="reveal">Was wir für Sie <em>schmieden.</em></h2>
+        <div class="service-grid">
+          <article class="card spotlight reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 42h8v-8h8v-8h8v-8h8v-8h4"/><path d="M10 34 40 8M14 34v-6M22 26v-7M30 18v-7"/></svg>
+            <h3>Treppen & Geländer</h3>
+            <p>Von der schlanken Stahlwangentreppe bis zum geschmiedeten Handlauf – sicher, schön und millimetergenau.</p>
+            <span class="card-num">01</span>
+          </article>
+          <article class="card spotlight reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 42V18q18-14 36 0v24"/><path d="M24 42V11M12 42V20M18 42V15M30 42V15M36 42V20"/><circle cx="24" cy="30" r="4"/></svg>
+            <h3>Tore & Zäune</h3>
+            <p>Hoftore, Pforten und Einfriedungen mit Charakter – auf Wunsch mit Antrieb und smarter Steuerung.</p>
+            <span class="card-num">02</span>
+          </article>
+          <article class="card spotlight reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 18h40v4H4z"/><path d="M8 22l10 20M40 22 30 42M18 42h12M8 42l10-20M40 42 30 22"/></svg>
+            <h3>Möbel & Interior</h3>
+            <p>Tische, Regale und Leuchten aus Rohstahl, kombiniert mit Eiche, Glas oder Stein. Industrial trifft Wohnzimmer.</p>
+            <span class="card-num">03</span>
+          </article>
+          <article class="card spotlight reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c4 8 12 12 12 22a12 12 0 0 1-24 0c0-5 3-8 5-11 1 4 3 6 6 6-2-6-2-11 1-17z"/><path d="M24 44V34"/></svg>
+            <h3>Kunst & Restaurierung</h3>
+            <p>Skulpturen, Grabkreuze und die fachgerechte Rettung historischer Schmiedearbeiten – mit Respekt vor dem Original.</p>
+            <span class="card-num">04</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Referenzen ===== -->
+    <section class="projects section" id="referenzen">
+      <div class="container">
+        <div class="projects-head">
+          <div>
+            <p class="kicker reveal">Referenzprojekte</p>
+            <h2 class="reveal">Arbeiten, auf die wir <em>stolz</em> sind.</h2>
+          </div>
+          <div class="filters reveal" role="group" aria-label="Referenzen filtern">
+            <button class="filter active" data-filter="alle" aria-pressed="true">Alle</button>
+            <button class="filter" data-filter="treppen" aria-pressed="false">Treppen</button>
+            <button class="filter" data-filter="tore" aria-pressed="false">Tore</button>
+            <button class="filter" data-filter="moebel" aria-pressed="false">Möbel</button>
+            <button class="filter" data-filter="kunst" aria-pressed="false">Kunst</button>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <!-- 1 -->
+          <button class="project reveal" data-cat="treppen"
+            data-title="Villa am Seeufer" data-place="Eichenfeld" data-year="2025"
+            data-material="Rohstahl, geölt · Eiche massiv" data-time="6 Wochen"
+            data-desc="Eine frei tragende Wangentreppe über zwei Etagen mit einem handgeschmiedeten Handlauf, der sich wie ein Band durch das Haus zieht. Jede Stufe wurde vor Ort eingemessen.">
+            <div class="project-art art-1">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <path pathLength="1" d="M30 270h60v-36h60v-36h60v-36h60v-36h60v-36h40"/>
+                <path pathLength="1" d="M50 200 L360 40"/>
+                <path pathLength="1" d="M60 234V195M120 198V164M180 162V133M240 126V102M300 90V71M360 54V40"/>
+                <path pathLength="1" d="M90 234c0-30 30-30 30-50M150 198c0-30 30-30 30-50M210 162c0-30 30-30 30-50M270 126c0-30 30-30 30-50"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <span class="tag">Treppen</span>
+              <h3>Villa am Seeufer</h3>
+              <p>Eichenfeld · 2025</p>
+            </div>
+            <span class="project-open" aria-hidden="true">+</span>
+          </button>
+          <!-- 2 -->
+          <button class="project reveal" data-cat="tore"
+            data-title="Gutshof Lindenhain" data-place="Lindenhain" data-year="2024"
+            data-material="Schmiedeeisen, feuerverzinkt · Messingdetails" data-time="9 Wochen"
+            data-desc="Ein zweiflügeliges Hoftor mit 4,20 m Breite, inspiriert von den Originalbeschlägen aus dem 19. Jahrhundert. Mit unsichtbarem Antrieb und Smartphone-Steuerung.">
+            <div class="project-art art-2">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <path pathLength="1" d="M60 280V110q140-90 280 0v170"/>
+                <path pathLength="1" d="M200 280V40"/>
+                <path pathLength="1" d="M95 280V92M130 280V74M165 280V62M235 280V62M270 280V74M305 280V92"/>
+                <path pathLength="1" d="M60 200h280M60 230h280"/>
+                <circle pathLength="1" cx="200" cy="140" r="26"/>
+                <circle pathLength="1" cx="200" cy="140" r="12"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <span class="tag">Tore</span>
+              <h3>Gutshof Lindenhain</h3>
+              <p>Lindenhain · 2024</p>
+            </div>
+            <span class="project-open" aria-hidden="true">+</span>
+          </button>
+          <!-- 3 -->
+          <button class="project reveal" data-cat="moebel"
+            data-title="Tafel „Kern“" data-place="Café Rösterei, Eichenfeld" data-year="2025"
+            data-material="Schwarzstahl · Eiche-Altholz" data-time="3 Wochen"
+            data-desc="Eine 4 Meter lange Tafel für eine Kaffeerösterei. Das gekreuzte Stahlgestell trägt eine Platte aus 120 Jahre altem Eichenholz aus einer abgerissenen Scheune.">
+            <div class="project-art art-3">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <path pathLength="1" d="M40 120 L120 80 H360 L280 120 Z"/>
+                <path pathLength="1" d="M40 120v12h240v-12M280 132l80-40v-12"/>
+                <path pathLength="1" d="M70 132l50 140M120 132 70 272M240 132l50 140M290 132l-50 140"/>
+                <path pathLength="1" d="M60 272h70M230 272h70"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <span class="tag">Möbel</span>
+              <h3>Tafel „Kern“</h3>
+              <p>Café Rösterei · 2025</p>
+            </div>
+            <span class="project-open" aria-hidden="true">+</span>
+          </button>
+          <!-- 4 -->
+          <button class="project reveal" data-cat="kunst"
+            data-title="Skulptur „Glut“" data-place="Stadtpark Eichenfeld" data-year="2023"
+            data-material="Cortenstahl · 380 kg" data-time="11 Wochen"
+            data-desc="Eine 3,5 Meter hohe Flammenskulptur zum 800-jährigen Stadtjubiläum. Bei Sonnenuntergang leuchtet die rostrote Oberfläche wie glühendes Eisen.">
+            <div class="project-art art-4">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <path pathLength="1" d="M200 30c30 50 80 80 80 150a80 80 0 0 1-160 0c0-40 24-64 40-88 8 32 22 46 46 48-14-40-16-72-6-110z"/>
+                <path pathLength="1" d="M200 120c14 26 34 40 34 70a34 34 0 0 1-68 0c0-18 10-28 18-38 4 14 10 20 20 20-6-18-8-34-4-52z"/>
+                <path pathLength="1" d="M150 285h100M200 260v25"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <span class="tag">Kunst</span>
+              <h3>Skulptur „Glut“</h3>
+              <p>Stadtpark · 2023</p>
+            </div>
+            <span class="project-open" aria-hidden="true">+</span>
+          </button>
+          <!-- 5 -->
+          <button class="project reveal" data-cat="treppen"
+            data-title="Loft im Hafenspeicher" data-place="Nordhafen" data-year="2024"
+            data-material="Stahl, pulverbeschichtet · Glas" data-time="5 Wochen"
+            data-desc="Eine Spindeltreppe als Herzstück eines umgebauten Speichers. 16 Stufen, eine durchgehende Spindel und ein Geländer, das kaum zu sehen und doch absolut sicher ist.">
+            <div class="project-art art-5">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <path pathLength="1" d="M200 20V285"/>
+                <path pathLength="1" d="M200 266h90M200 241l60-14M200 216h-90M200 191l-60-14M200 166h90M200 141l60-14M200 116h-90M200 91l-60-14M200 66h90"/>
+                <path pathLength="1" d="M290 236C290 216 110 206 110 186S290 156 290 136 110 106 110 86 290 56 290 36"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <span class="tag">Treppen</span>
+              <h3>Loft im Hafenspeicher</h3>
+              <p>Nordhafen · 2024</p>
+            </div>
+            <span class="project-open" aria-hidden="true">+</span>
+          </button>
+          <!-- 6 -->
+          <button class="project reveal" data-cat="tore"
+            data-title="Vordach „Schwebe“" data-place="Praxis Dr. Albers, Eichenfeld" data-year="2025"
+            data-material="Edelstahl · VSG-Glas" data-time="2 Wochen"
+            data-desc="Ein Glasvordach, das scheinbar schwerelos über dem Eingang schwebt – gehalten von zwei feinen Zugstangen. Schlicht, modern und wetterfest.">
+            <div class="project-art art-6">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <path pathLength="1" d="M70 20V285"/>
+                <path pathLength="1" d="M70 150h270l-8 12H70"/>
+                <path pathLength="1" d="M70 50 330 150M70 80 250 150"/>
+                <path pathLength="1" d="M140 285V200h90v85M185 200v85"/>
+                <circle pathLength="1" cx="330" cy="150" r="5"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <span class="tag">Tore & Vordächer</span>
+              <h3>Vordach „Schwebe“</h3>
+              <p>Eichenfeld · 2025</p>
+            </div>
+            <span class="project-open" aria-hidden="true">+</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ablauf ===== -->
+    <section class="process section" id="ablauf">
+      <div class="container">
+        <p class="kicker reveal">So arbeiten wir</p>
+        <h2 class="reveal">Von der Idee zum <em>Unikat.</em></h2>
+        <ol class="timeline">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <div><h3>Kennenlernen</h3><p>Wir hören zu, schauen uns die Situation vor Ort an und messen auf – kostenlos und unverbindlich.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <div><h3>Entwurf</h3><p>Sie bekommen Skizzen und eine 3D-Ansicht, bis alles passt. Erst dann geht es ans Feuer.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <div><h3>Schmieden</h3><p>In unserer Werkstatt entsteht Ihr Stück – von Hand, mit Geduld und viel Gefühl für das Material.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">04</span>
+            <div><h3>Montage</h3><p>Wir bauen sauber und pünktlich ein. Und wir sind auch Jahre später noch für Sie da.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Kundenstimmen ===== -->
+    <section class="quotes section">
+      <div class="container">
+        <p class="kicker reveal">Kundenstimmen</p>
+        <div class="quote-slider reveal" aria-live="polite">
+          <figure class="quote active">
+            <blockquote>„Unser Hoftor ist jetzt das Erste, worauf Besucher uns ansprechen. Handwerk, wie man es kaum noch findet.“</blockquote>
+            <figcaption>Familie K. · Lindenhain</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>„Vom ersten Entwurf bis zur Montage absolut zuverlässig. Die Treppe ist ein echtes Kunstwerk geworden.“</blockquote>
+            <figcaption>Martina S. · Eichenfeld</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>„Unsere Gäste fragen ständig, wo wir den Tisch herhaben. Wir schicken sie alle zu Funkenwerk.“</blockquote>
+            <figcaption>Jonas R. · Café-Inhaber</figcaption>
+          </figure>
+        </div>
+        <div class="quote-dots" role="group" aria-label="Kundenstimme auswählen">
+          <button class="active" aria-label="Stimme 1"></button>
+          <button aria-label="Stimme 2"></button>
+          <button aria-label="Stimme 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Kontakt ===== -->
+    <section class="contact section" id="kontakt">
+      <div class="container contact-grid">
+        <div class="contact-side">
+          <p class="kicker reveal">Kontakt</p>
+          <h2 class="reveal">Lassen Sie uns etwas <em>Großes</em> bauen.</h2>
+          <p class="reveal">Erzählen Sie uns von Ihrer Idee. Wir melden uns innerhalb von 24 Stunden mit einem Terminvorschlag.</p>
+          <ul class="contact-list reveal">
+            <li><span>Adresse</span>Am Hammerwerk 7 · 12345 Eichenfeld</li>
+            <li><span>Telefon</span>0123 456 78 90</li>
+            <li><span>E-Mail</span>hallo@funkenwerk.example</li>
+            <li><span>Werkstatt</span>Mo–Fr 7–17 Uhr · Sa nach Absprache</li>
+          </ul>
+        </div>
+
+        <form class="form reveal" novalidate>
+          <fieldset class="chips">
+            <legend>Worum geht es?</legend>
+            <label><input type="radio" name="art" value="Treppe" checked><span>Treppe / Geländer</span></label>
+            <label><input type="radio" name="art" value="Tor"><span>Tor / Zaun</span></label>
+            <label><input type="radio" name="art" value="Möbel"><span>Möbel</span></label>
+            <label><input type="radio" name="art" value="Sonstiges"><span>Etwas anderes</span></label>
+          </fieldset>
+
+          <div class="field">
+            <input id="name" name="name" type="text" placeholder=" " autocomplete="name" required>
+            <label for="name">Ihr Name *</label>
+            <small class="error">Bitte geben Sie Ihren Namen an.</small>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <input id="email" name="email" type="email" placeholder=" " autocomplete="email" required>
+              <label for="email">E-Mail *</label>
+              <small class="error">Bitte geben Sie eine gültige E-Mail-Adresse an.</small>
+            </div>
+            <div class="field">
+              <input id="tel" name="tel" type="tel" placeholder=" " autocomplete="tel">
+              <label for="tel">Telefon (optional)</label>
+            </div>
+          </div>
+          <div class="field">
+            <textarea id="msg" name="msg" rows="4" placeholder=" " required minlength="10"></textarea>
+            <label for="msg">Ihre Idee *</label>
+            <small class="error">Erzählen Sie uns kurz von Ihrem Vorhaben (mind. 10 Zeichen).</small>
+          </div>
+          <label class="check">
+            <input type="checkbox" id="privacy" required>
+            <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. *</span>
+          </label>
+          <small class="error check-error">Bitte stimmen Sie zu.</small>
+
+          <button type="submit" class="btn btn-full magnetic">Anfrage senden <span class="arrow">→</span></button>
+          <p class="form-note">Demo-Formular: Es werden keine Daten gesendet oder gespeichert.</p>
+
+          <div class="success" aria-live="polite" hidden>
+            <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+            <h3>Danke, <span class="success-name"></span>!</h3>
+            <p>Ihre Anfrage ist bei uns angekommen. Wir melden uns schnellstmöglich bei Ihnen.</p>
+            <button type="button" class="btn btn-ghost btn-small reset">Neue Anfrage</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Fußzeile ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#start" class="logo" aria-label="Nach oben">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c2.4 5.6 8 7.8 8 14.6a8 8 0 0 1-16 0c0-3.4 2-5.6 3.4-7.8 1 3.2 2.4 4.4 4.6 4.6-1.2-4.4-1.2-7.8 0-11.4z"/></svg>
+        <span>FUNKEN<b>WERK</b></span>
+      </a>
+      <p>© 2026 Funkenwerk · Metallbau & Kunstschmiede</p>
+      <p class="demo-note">Fiktiver Betrieb – Demo-Webseite aus der Projektwoche. Alle Namen, Adressen und Projekte sind erfunden.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Projekt-Detailfenster ===== -->
+  <dialog class="modal" aria-labelledby="modal-title">
+    <button class="modal-close" aria-label="Schließen">×</button>
+    <div class="modal-art"></div>
+    <div class="modal-body">
+      <span class="tag modal-tag"></span>
+      <h3 id="modal-title"></h3>
+      <p class="modal-place"></p>
+      <p class="modal-desc"></p>
+      <dl class="modal-facts">
+        <div><dt>Material</dt><dd class="modal-material"></dd></div>
+        <div><dt>Bauzeit</dt><dd class="modal-time"></dd></div>
+        <div><dt>Jahr</dt><dd class="modal-year"></dd></div>
+      </dl>
+      <a href="#kontakt" class="btn btn-small modal-cta">Ähnliches Projekt anfragen →</a>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
